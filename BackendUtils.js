@@ -59,7 +59,7 @@ const BackendUtils = {
 class Database {
   constructor() {
     this.mongoUri = process.env.mongoUri;
-    this.dbName = 'StumbleCrowns';
+    this.dbName = 'StumbleBack';
     this.client = null;
     this.db = null;
     this.collections = {
@@ -248,14 +248,14 @@ class UserModel {
   static async create(deviceId, platformData = {}) {
     const now = new Date();
     const userId = Math.floor(Math.random() * 10000);
-    const username = `StumbleCrowns#${userId}`;
+    const username = `StumbleBack#${userId}`;
 
     const user = {
       id: userId,
       deviceId,
       stumbleId: BackendUtils.generateId().toUpperCase(),
       username,
-      country: 'PL',
+      country: 'EN',
       region: 'EU',
       token: CryptoUtils.SessionToken(),
       version: platformData.Version || '0.99',
