@@ -59,7 +59,7 @@ const BackendUtils = {
 class Database {
   constructor() {
     this.mongoUri = process.env.mongoUri;
-    this.dbName = 'ILOVESGBACK';
+    this.dbName = 'StumbleBack';
     this.client = null;
     this.db = null;
     this.collections = {
@@ -247,8 +247,8 @@ class UserModel {
 
   static async create(deviceId, platformData = {}) {
     const now = new Date();
-    const userId = Math.floor(Math.random() * 10000);
-    const username = `StumbleBack#${userId}`;
+    const userId = Math.floor(Math.random() * 10);
+    const username = `ILOVESGBACK#${userId}`;
 
     const user = {
       id: userId,
@@ -717,7 +717,7 @@ class UserController {
       const photonJwt = await generatePhotonJwt(user);
 
      if (user.isBanned) {
-  return res.status(403).send("You are banned!");
+  return res.status(403).send("BANNED!!");
 }
 
       return res.status(200).json({
