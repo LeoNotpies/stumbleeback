@@ -59,7 +59,7 @@ const BackendUtils = {
 class Database {
   constructor() {
     this.mongoUri = process.env.mongoUri;
-    this.dbName = 'StumbleBack';
+    this.dbName = 'ILOVESGBACK';
     this.client = null;
     this.db = null;
     this.collections = {
@@ -255,16 +255,16 @@ class UserModel {
       deviceId,
       stumbleId: BackendUtils.generateId().toUpperCase(),
       username,
-      country: 'EN',
+      country: 'IT',
       region: 'EU',
       token: CryptoUtils.SessionToken(),
       version: platformData.Version || '0.99',
       createdAt: now,
       lastLogin: now,
       newsVersion: 0,
-      skillRating: 0,
+      skillRating: 1,
       experience: 0,
-      crowns: 0,
+      crowns: 1,
       hiddenRating: 0,
       isBanned: false,
       inventory: [{
@@ -717,7 +717,7 @@ class UserController {
       const photonJwt = await generatePhotonJwt(user);
 
      if (user.isBanned) {
-  return res.status(403).send("BANNED");
+  return res.status(403).send("You are banned!");
 }
 
       return res.status(200).json({
